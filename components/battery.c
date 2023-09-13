@@ -46,7 +46,16 @@
 		if (pscanf(path, "%d", &cap_perc) != 1)
 			return NULL;
 
-		return bprintf("%d", cap_perc);
+    if (cap_perc > 95)
+      return bprintf("");
+    if (cap_perc > 80)
+      return bprintf("");
+    if (cap_perc > 10)
+      return bprintf("");
+    
+    return bprintf("");
+
+		//return bprintf("%d", cap_perc);
 	}
 
 	const char *
@@ -56,10 +65,10 @@
 			char *state;
 			char *symbol;
 		} map[] = {
-			{ "Charging",    "+" },
-			{ "Discharging", "-" },
-			{ "Full",        "o" },
-			{ "Not charging", "o" },
+			{ "Charging",    "󰂄" },
+			{ "Discharging", "󱟤" },
+			{ "Full",        "󱟢" },
+			{ "Not charging", "󰂃" },
 		};
 		size_t i;
 		char path[PATH_MAX], state[12];

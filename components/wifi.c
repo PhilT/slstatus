@@ -39,7 +39,7 @@
 		p = fgets(status, 5, fp);
 		fclose(fp);
 		if (!p || strcmp(status, "up\n") != 0)
-			return NULL;
+			return bprintf("󰤭");
 
 		if (!(fp = fopen("/proc/net/wireless", "r"))) {
 			warn("fopen '/proc/net/wireless':");
@@ -62,7 +62,22 @@
 		       "%*d\t\t%*d\t\t %*d\t  %*d\t\t %*d", &cur);
 
 		/* 70 is the max of /proc/net/wireless */
-		return bprintf("%d", (int)((float)cur / 70 * 100));
+		//return bprintf("%d", (int)((float)cur / 70 * 100));
+    int perc = (int)((float)cur / 70 * 100);
+
+    if (perc > 95)
+      return bprintf("󰤨");
+
+    if (perc > 80)
+      return bprintf("󰤥");
+
+    if (perc > 50)
+      return bprintf("󰤢");
+
+    if (perc > 20)
+      return bprintf("󰤟");
+
+    return bprintf("󰤯");
 	}
 
 	const char *

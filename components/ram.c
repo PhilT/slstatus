@@ -19,7 +19,8 @@
 		           &free, &free, &free) != 3)
 			return NULL;
 
-		return fmt_human(free * 1024, 1024);
+    return bprintf("%dgb", ((int) free) / 1024 / 1024);
+		//return fmt_human(free * 1024, 1024);
 	}
 
 	const char *
