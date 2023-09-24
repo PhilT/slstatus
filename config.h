@@ -65,12 +65,12 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-  { ram_free,     "󰍛 %s  ",     NULL },
+  { disk_free,    "󰋊 %s  ",     "/" },
+  { ram_used,     "󰍛 %s  ",     NULL },
   { cpu_perc,     "󰻠 %s  ",     NULL },
   { cat,          " %s  ",      "/home/phil/.volumestatus" },
   { wifi_perc,    " %s  ",      "wlan0" },
   { battery_perc, " %s   ",     "BAT0" },
-  { battery_state," %s  ",      "BAT0" },
 	{ datetime,     "%s",         "%F %H:%M" },
 
   //{ run_command, "%2s |", "weatherbar.sh" },
