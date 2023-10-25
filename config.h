@@ -66,10 +66,11 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
   { disk_free,    "󰋊 %s  ",     "/" },
+  { disk_free,    "󰋊 %s  ",     "/games" },
   { ram_used,     "󰍛 %s  ",     NULL },
   { cpu_perc,     "󰻠 %s  ",     NULL },
   { cat,          " %s  ",      "/home/phil/.volumestatus" },
-  { wifi_perc,    " %s  ",      "wlan0" },
+  //{ wifi_perc,    " %s  ",      "wlan0" },
   //{ battery_perc, " %s   ",     "BAT0" },
 	{ datetime,     "%s",         "%F %H:%M" },
 
